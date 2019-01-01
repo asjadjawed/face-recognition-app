@@ -24,4 +24,15 @@
 
 .Tilt img {
   width: 70%;
+  animation: eyeRotate 60s infinite linear;
+}
+
+@keyframes eyeRotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
 }
