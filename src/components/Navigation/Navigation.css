@@ -1,0 +1,15 @@
+.Navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Navigation p {
+  font-size: 1.3em;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Navigation p:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
