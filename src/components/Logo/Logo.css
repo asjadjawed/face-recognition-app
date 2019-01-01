@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .Tilt {
@@ -24,15 +24,19 @@
 
 .Tilt img {
   width: 70%;
-  animation: eyeRotate 60s infinite linear;
+  animation: eyeRotate 18s infinite linear;
 }
 
 @keyframes eyeRotate {
   0% {
-    transform: rotate(0);
+    transform: rotate(0) scale(1);
+  }
+
+  50% {
+    transform: rotate(360deg) scale(0.75);
   }
 
   100% {
-    transform: rotate(180deg);
+    transform: rotate(720deg) scale(1);
   }
 }

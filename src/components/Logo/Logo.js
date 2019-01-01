@@ -8,7 +8,7 @@ const Logo = () => (
     <Tilt
       className="Tilt"
       options={{ max: 25 }}
-      style={{ height: 200, width: 200 }}
+      style={{ height: 185, width: 185 }}
     >
       <img src={eye} alt="the digital eye" />
     </Tilt>
