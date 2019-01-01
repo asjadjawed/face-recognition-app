@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Righteous");
+
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(0deg, #b8373a, #45a5ff);
+  background: whitesmoke;
+  /* background: linear-gradient(
+    10deg,
+    rgba(115, 177, 231, 1) 0%,
+    rgba(10, 119, 213, 1) 50%,
+    rgba(83, 159, 225, 1) 100%
+  ); */
   min-height: 100vh;
   font-size: 16px;
+  font-family: Righteous, cursive;
 }

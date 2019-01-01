@@ -1,0 +1,56 @@
+.ImageLinkForm p {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.imageInput {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #eceddc 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, #eceddc 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #eceddc 25%, transparent 25%),
+    linear-gradient(45deg, #eceddc 25%, transparent 25%);
+  background-size: 100px 8px;
+  background-color: #ec173a;
+  border-radius: 100px;
+}
+
+.imageInput input {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  border-radius: 20px 0px 0px 20px;
+  background: whitesmoke;
+  outline: none;
+  width: 50%;
+  padding: 10px 25px;
+  box-sizing: border-box;
+}
+
+.imageInput button {
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  border-radius: 0px 20px 20px 0px;
+  width: 20%;
+  font-size: 1.2em;
+  font-family: Righteous, cursive;
+  box-sizing: border-box;
+  background: #ec173a;
+  color: whitesmoke;
+}
+
+.imageInput input:focus {
+  border: 2px solid black;
+  border-right: none;
+  outline: none;
+}
+
+.imageInput input:focus + button {
+  border: 2px solid black;
+  border-left: 2px solid transparent;
+  outline: none;
+}

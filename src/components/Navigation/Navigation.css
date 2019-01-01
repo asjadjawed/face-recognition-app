@@ -1,11 +1,22 @@
 .Navigation {
   display: flex;
   justify-content: flex-end;
+  box-shadow: 10px 10px 41px 3px rgba(0, 0, 0, 0.23);
+  background: linear-gradient(
+    30deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  box-sizing: border-box;
+  padding: 0px 15px;
+  z-index: 1;
 }
 
 .Navigation p {
   font-size: 1.3em;
-  padding: 5px;
+  padding: 0px 10px;
   cursor: pointer;
 }
 
