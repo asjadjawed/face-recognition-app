@@ -10,7 +10,7 @@ const Logo = () => (
       options={{ max: 25 }}
       style={{ height: 185, width: 185 }}
     >
-      <img src={eye} alt="the digital eye" />
+      <img src={eye} alt="the digital eye" title="Stop poking the eye!" />
     </Tilt>
   </div>
 );

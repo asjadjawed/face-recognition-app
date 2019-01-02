@@ -4,14 +4,14 @@ const particlesConfig = {
       value: 80,
       density: {
         enable: true,
-        value_area: 800
+        value_area: 600
       }
     },
     color: {
       value: "#f00"
     },
     shape: {
-      type: "circle",
+      type: "polygon",
       stroke: {
         width: 0,
         color: "#f00"
@@ -49,7 +49,7 @@ const particlesConfig = {
       enable: true,
       distance: 120,
       color: "#000",
-      opacity: 0.5,
+      opacity: 0.1,
       width: 1
     },
     move: {
@@ -106,7 +106,7 @@ const particlesConfig = {
       }
     }
   },
-  retina_detect: false
+  retina_detect: true
 };
 
 export default particlesConfig;

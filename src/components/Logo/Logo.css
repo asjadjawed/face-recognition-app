@@ -27,6 +27,10 @@
   animation: eyeRotate 18s infinite linear;
 }
 
+.Tilt img:hover {
+  animation-play-state: paused;
+}
+
 @keyframes eyeRotate {
   0% {
     transform: rotate(0) scale(1);
