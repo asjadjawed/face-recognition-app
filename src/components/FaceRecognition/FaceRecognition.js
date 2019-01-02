@@ -24,12 +24,19 @@ const FaceRecognition = ({ image, boxes }) => {
       <div
         style={{
           display: "block",
-          width: "60%",
-          margin: "auto",
+          width: "50%",
+          margin: "20px auto",
           position: "relative"
         }}
       >
-        <img src={image} alt="" style={{ width: "100%" }} />
+        <img
+          src={image}
+          alt=""
+          style={{
+            width: "100%",
+            boxShadow: "0px 0px 41px 3px rgba(0, 0, 0, 0.23)"
+          }}
+        />
         {faceBoxes}
       </div>
     </div>
