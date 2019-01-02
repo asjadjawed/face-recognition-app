@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Particles from "react-particles-js";
 import Clarifai from "clarifai";
+import Particles from "react-particles-js";
 import particlesConfig from "./particlesConfig";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
@@ -36,7 +36,7 @@ class App extends Component {
           });
         }
       })
-      .catch(err => console.error("Bad Request!"));
+      .catch(err => console.error("Bad Request!", err));
   };
 
   render() {

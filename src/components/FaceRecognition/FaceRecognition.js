@@ -36,9 +36,4 @@ const FaceRecognition = ({ image, boxes }) => {
   );
 };
 
-// bottom_row: 0.68098575
-// left_col: 0.4454289
-// right_col: 0.96042866
-// top_row: 0.16130343
-
 export default FaceRecognition;
