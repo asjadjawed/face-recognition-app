@@ -20,13 +20,18 @@ const FaceRecognition = ({ image, boxes }) => {
   }
 
   return (
-    <div className="FaceRecognition">
+    <div
+      className="FaceRecognition"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
       <div
         style={{
-          display: "block",
-          width: "50%",
-          margin: "20px auto",
-          position: "relative"
+          position: "relative",
+          maxWidth: "80%"
         }}
       >
         <img
