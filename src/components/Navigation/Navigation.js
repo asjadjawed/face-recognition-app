@@ -1,9 +1,9 @@
 import React from "react";
 import "./Navigation.css";
 
-const Navigation = () => (
+const Navigation = ({ onRouteChange }) => (
   <nav className="Navigation">
-    <p>Sign Out</p>
+    <p onClick={() => onRouteChange("signIn")}>Sign Out</p>
   </nav>
 );
 

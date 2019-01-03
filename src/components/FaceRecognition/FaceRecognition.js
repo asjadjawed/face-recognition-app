@@ -9,7 +9,7 @@ const FaceRecognition = ({ image, boxes }) => {
         key={i}
         style={{
           position: "absolute",
-          border: "5px solid #ec173a",
+          border: "2px solid #ec173a",
           top: `${box.top_row * 100}%`,
           bottom: `${(1 - box.bottom_row) * 100}%`,
           left: `${box.left_col * 100}%`,

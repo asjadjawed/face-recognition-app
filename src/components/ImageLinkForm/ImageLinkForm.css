@@ -22,12 +22,15 @@
 }
 
 .imageInput input {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 2rem;
   border: 2px solid transparent;
   outline: 2px solid transparent;
   border-radius: 20px 0px 0px 20px;
-  background: whitesmoke;
+  background: black;
+  color: whitesmoke;
+  text-align: center;
+  font-family: Righteous, cursive;
   outline: none;
   width: 60%;
   padding: 10px 25px;
