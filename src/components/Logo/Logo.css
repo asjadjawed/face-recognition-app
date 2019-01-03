@@ -23,7 +23,7 @@
 }
 
 .Tilt img {
-  width: 70%;
+  width: 80%;
   animation: eyeRotate 18s infinite linear;
 }
 
