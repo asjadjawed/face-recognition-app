@@ -22,8 +22,9 @@
   justify-content: center;
 }
 
-.Register div > a {
+.Register div > p {
   font-size: 1em;
+  cursor: pointer;
 }
 
 .Register legend {

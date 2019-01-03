@@ -22,8 +22,9 @@
   justify-content: center;
 }
 
-.SignIn div > a {
+.SignIn div > p {
   font-size: 1em;
+  cursor: pointer;
 }
 
 .SignIn legend {
