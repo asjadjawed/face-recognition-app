@@ -21,9 +21,12 @@ class App extends Component {
     this.state = {
       input: "",
       boxes: [],
-      route: "signIn"
+      route: "signIn",
+      user: {}
     };
   }
+
+  loadUser = data => this.setState({ user: data });
 
   onInputChange = e => this.setState({ input: e.target.value, boxes: [] });
 
@@ -49,7 +52,10 @@ class App extends Component {
       <div className="App">
         <Particles className="Particles" params={particlesConfig} />
         {this.state.route === "register" ? (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register
+            loadUser={this.loadUser}
+            onRouteChange={this.onRouteChange}
+          />
         ) : this.state.route === "signIn" ? (
           <SignIn onRouteChange={this.onRouteChange} />
         ) : (

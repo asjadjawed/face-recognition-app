@@ -14,7 +14,7 @@ class SignIn extends Component {
 
   onPasswordChange = e => this.setState({ password: e.target.value });
 
-  signIn = () =>
+  onSignIn = () =>
     fetch("http://localhost:5000/signin", {
       method: "POST",
       headers: {
@@ -75,8 +75,7 @@ class SignIn extends Component {
                 value="Sign In"
                 onClick={e => {
                   e.preventDefault();
-                  // onRouteChange("home");
-                  this.signIn();
+                  this.onSignIn();
                 }}
               />
             </div>
