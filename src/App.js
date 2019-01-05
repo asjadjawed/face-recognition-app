@@ -28,11 +28,7 @@ class App extends Component {
 
   loadUser = data => this.setState({ user: data });
 
-  onInputChange = e =>
-    this.setState(
-      { input: e.target.value, boxes: [] },
-      console.log(this.state)
-    );
+  onInputChange = e => this.setState({ input: e.target.value, boxes: [] });
 
   onRouteChange = route => this.setState({ route: route });
 
