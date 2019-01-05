@@ -18,30 +18,32 @@ class Register extends Component {
   onPasswordChange = e => this.setState({ password: e.target.value });
 
   onRegister = () =>
-    fetch("http://localhost:5000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          id: String(Math.floor(Math.random() * 1000) + 1),
-          name: this.state.name,
-          email: this.state.email,
-          password: this.state.password,
-          entries: 0
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res) {
-          this.props.loadUser(res);
-          this.props.onRouteChange("home");
-        } else {
-          alert("Bad username/Password");
-        }
-      });
+    this.state.name && this.state.email && this.state.password
+      ? fetch("http://localhost:5000/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            user: {
+              id: String(Math.floor(Math.random() * 1000) + 1),
+              name: this.state.name,
+              email: this.state.email,
+              password: this.state.password,
+              entries: 0
+            }
+          })
+        })
+          .then(res => res.json())
+          .then(res => {
+            if (res) {
+              this.props.loadUser(res);
+              this.props.onRouteChange("home");
+            } else {
+              alert("Bad username/Password");
+            }
+          })
+      : alert("All fields are required");
 
   render() {
     const { onRouteChange } = this.props;
