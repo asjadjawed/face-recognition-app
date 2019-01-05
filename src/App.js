@@ -28,7 +28,11 @@ class App extends Component {
 
   loadUser = data => this.setState({ user: data });
 
-  onInputChange = e => this.setState({ input: e.target.value, boxes: [] });
+  onInputChange = e =>
+    this.setState(
+      { input: e.target.value, boxes: [] },
+      console.log(this.state)
+    );
 
   onRouteChange = route => this.setState({ route: route });
 
@@ -37,6 +41,17 @@ class App extends Component {
       .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
       .then(res => {
         if (res.outputs[0].data.regions) {
+          fetch("http://localhost:5000/image", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(res => res.json())
+            .then(data => this.loadUser(data));
           this.setState({
             boxes: res.outputs[0].data.regions.map(
               box => box.region_info.bounding_box
@@ -57,7 +72,7 @@ class App extends Component {
             onRouteChange={this.onRouteChange}
           />
         ) : this.state.route === "signIn" ? (
-          <SignIn onRouteChange={this.onRouteChange} />
+          <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <div className="home">
             <Navigation onRouteChange={this.onRouteChange} />
@@ -66,7 +81,10 @@ class App extends Component {
               onInputChange={this.onInputChange}
               onImageSubmit={this.onImageSubmit}
             />
-            <Rank />
+            <Rank
+              userName={this.state.user.name}
+              userEntries={this.state.user.entries}
+            />
             <FaceRecognition
               image={this.state.input}
               boxes={this.state.boxes}

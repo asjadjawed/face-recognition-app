@@ -27,9 +27,12 @@ class SignIn extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.status) {
+        if (res.status !== false) {
+          console.log(res);
+          this.props.loadUser(res);
           this.props.onRouteChange("home");
         } else {
+          console.log(res);
           alert("Bad username/Password");
         }
       });

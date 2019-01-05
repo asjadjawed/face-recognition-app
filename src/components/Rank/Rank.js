@@ -1,12 +1,12 @@
 import React from "react";
 
-const Rank = () => (
+const Rank = ({ userName, userEntries }) => (
   <div
     className="Rank"
     style={{ textAlign: "center", fontSize: "1.4rem", padding: "20px" }}
   >
-    <div>{`${"User"} your Rank is: `}</div>
-    <div style={{ fontSize: "1.5em" }}>{`${"#5"}`}</div>
+    <div>{`${userName} No. of submissions: `}</div>
+    <div style={{ fontSize: "1.5em" }}>{`${userEntries}`}</div>
   </div>
 );
 
