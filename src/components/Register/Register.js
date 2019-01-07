@@ -26,21 +26,20 @@ class Register extends Component {
           },
           body: JSON.stringify({
             user: {
-              id: String(Math.floor(Math.random() * 1000) + 1),
               name: this.state.name,
               email: this.state.email,
-              password: this.state.password,
-              entries: 0
+              password: this.state.password
             }
           })
         })
           .then(res => res.json())
           .then(res => {
-            if (res) {
+            if (res.status) {
+              console.log(res);
               this.props.loadUser(res);
               this.props.onRouteChange("home");
             } else {
-              alert("Bad username/Password");
+              alert("Unable to register!");
             }
           })
       : alert("All fields are required");
