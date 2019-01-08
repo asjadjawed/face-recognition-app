@@ -57,24 +57,28 @@ class App extends Component {
       .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
       .then(res => {
         if (res.outputs[0].data.regions) {
-          fetch("http://localhost:5000/image", {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              id: this.state.user.id
-            })
-          })
-            .then(res => res.json())
-            .then(data => this.loadUser(data));
           this.setState({
             boxes: res.outputs[0].data.regions.map(
               box => box.region_info.bounding_box
             )
           });
+        } else {
+          throw new Error("Face not found");
         }
       })
+      .then(() =>
+        fetch("http://localhost:5000/image", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: this.state.user.id
+          })
+        })
+      )
+      .then(res => res.json())
+      .then(data => this.loadUser(data))
       .catch(err => console.error("Bad Request!", err));
   }
 
