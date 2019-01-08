@@ -24,15 +24,35 @@ class App extends Component {
       route: "signIn",
       user: {}
     };
+    this.loadUser = this.loadUser.bind(this);
+    this.initState = this.initState.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onRouteChange = this.onRouteChange.bind(this);
+    this.onImageSubmit = this.onImageSubmit.bind(this);
   }
 
-  loadUser = data => this.setState({ user: data });
+  loadUser(data) {
+    this.setState({ user: data });
+  }
 
-  onInputChange = e => this.setState({ input: e.target.value, boxes: [] });
+  initState() {
+    this.setState({
+      input: "",
+      boxes: [],
+      route: "signIn",
+      user: {}
+    });
+  }
 
-  onRouteChange = route => this.setState({ route: route });
+  onInputChange(e) {
+    this.setState({ input: e.target.value, boxes: [] });
+  }
 
-  onImageSubmit = () => {
+  onRouteChange(route) {
+    this.setState({ route: route });
+  }
+
+  onImageSubmit() {
     app.models
       .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
       .then(res => {
@@ -56,7 +76,7 @@ class App extends Component {
         }
       })
       .catch(err => console.error("Bad Request!", err));
-  };
+  }
 
   render() {
     return (
@@ -71,7 +91,7 @@ class App extends Component {
           <SignIn onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <div className="home">
-            <Navigation onRouteChange={this.onRouteChange} />
+            <Navigation initState={this.initState} />
             <Logo />
             <ImageLinkForm
               onInputChange={this.onInputChange}
