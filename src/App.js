@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Clarifai from "clarifai";
 import Particles from "react-particles-js";
 import particlesConfig from "./particlesConfig";
 import Navigation from "./components/Navigation/Navigation";
@@ -10,10 +9,6 @@ import Rank from "./components/Rank/Rank";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import SignIn from "./components/SignIn/SignIn";
 import Register from "./components/Register/Register";
-
-const app = new Clarifai.App({
-  apiKey: "4a1dcea0b8ee4974b20ffefea7bed5cd"
-});
 
 class App extends Component {
   constructor() {
@@ -53,33 +48,25 @@ class App extends Component {
   }
 
   onImageSubmit() {
-    app.models
-      .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
-      .then(res => {
-        if (res.outputs[0].data.regions) {
-          this.setState({
-            boxes: res.outputs[0].data.regions.map(
-              box => box.region_info.bounding_box
-            )
-          });
+    fetch("http://localhost:5000/image", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id: this.state.user.id,
+        input: this.state.input
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.user) {
+          this.setState({ boxes: data.boxes, user: data.user });
         } else {
           throw new Error("Face not found");
         }
       })
-      .then(() =>
-        fetch("http://localhost:5000/image", {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            id: this.state.user.id
-          })
-        })
-      )
-      .then(res => res.json())
-      .then(data => this.loadUser(data))
-      .catch(err => console.error("Bad Request!", err));
+      .catch(error => console.error("Bad Request!", error));
   }
 
   render() {
