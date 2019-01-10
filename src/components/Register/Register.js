@@ -19,7 +19,7 @@ class Register extends Component {
 
   onRegister = () =>
     this.state.name && this.state.email && this.state.password
-      ? fetch("http://localhost:5000/register", {
+      ? fetch("https://whispering-oasis-52605.herokuapp.com/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

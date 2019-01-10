@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   onImageSubmit() {
-    fetch("http://localhost:5000/image", {
+    fetch("https://whispering-oasis-52605.herokuapp.com/image", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
