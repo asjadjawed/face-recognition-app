@@ -1,6 +1,7 @@
 # Face Recognition Eye App (Front End)
 
-Live: [https://asjad.dev/face-recognition-app/](https://asjad.dev/face-recognition-app/)
+FrontEnd / Live: [https://asjad.dev/face-recognition-app/](https://asjad.dev/face-recognition-app/)
+Backend: [https://github.com/asjadjawed/face-recognition-api](https://github.com/asjadjawed/face-recognition-api)
 
 Face Recognition App developed in React JS. The app uses AI to recognize if the image submitted contains a face.
 Background uses Particles-js for animation and interactivity. Logo 3D effect and tilting via React-Tilt
